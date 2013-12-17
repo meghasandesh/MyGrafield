@@ -1,0 +1,100 @@
+div.dailySegment {
+	width: 450px;
+	height: 402px;
+	background-position: -7px 0;
+	float: left;
+	cursor: pointer;
+	background-size: 1350px;
+}
+
+div.dailySegment:nth-child(even) {
+	margin-left:10px;	
+}
+
+div.dailySegment:nth-child(odd) {
+	margin-right:10px;
+}
+
+div.dailySegmentLabel {
+	background: #FF6633;
+	color: #FFF;
+    padding: 15px;
+    position: relative;
+    top: 330px;
+    border-top-right-radius: 8px;
+    height: 45px;
+    width: 420px;
+	font-size: 32px;
+	font-family: sans-serif;
+}
+
+.portraitContainer {
+	width: 920px;
+	margin: 0 auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div.segment {
+	width: 900px;
+	height: 801px;
+	background-size: 2700px;
+}
+
+#segment1 {
+	background-position: -15px 0;
+}
+
+#segment2 {
+	background-position: -900px 0;
+}
+
+#segment3 {
+	background-position: -1785px 0;
+}
+
+#comicStrip {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.bottomBarIcon {
+	position: fixed;
+	resize: none;
+	visibility: hidden;
+}
+
+#appIcon {
+	bottom: 0;
+	left: 0;
+}
+
+#calendarIcon {
+	bottom: 275px;
+	left: 10px;
+}
+
+#favoritesIcon {
+	bottom: 175px;
+	left: 200px;
+}
+
+#favorited {
+	bottom: 20px;
+	right: 20px;
+}
+
+.weekdaySegment {
+	width: 1800px;
+	height: 534px;
+	background-size: 1800px 534px;
+	margin-top:50px;
+}
+
+.landscapeContainer {
+	width: 1840px;
+	margin: 0 auto;
+}

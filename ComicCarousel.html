@@ -1,0 +1,126 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=0.35, minimum-scale=0.35, maximum-scale=0.35, user-scalable=1"/>
+<html>
+<head>
+	<script src="jslib/jquery-2.0.3.min.js"></script>
+	<script src="jslib/functions.js"></script>
+	<script type="text/javascript" src="jslib/storage.min.js"></script>
+	<link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+	<div id="comicCarousel">
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+		<div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div>
+	</div>
+<script>
+var currentDate, dateObj;
+var baseURL = "http://garfield.com/uploads/strips/";
+var fileFormat = ".jpg";
+var comic, comicStripURL;
+var width, height;
+
+function storeParams() {
+	localStorage.setItem( 'dayDecrement' , dayDecrement );
+}
+
+function loadComicCarousel(startup) {
+	var dayDecrement;
+	if(startup || !localStorage.getItem( 'dayDecrement')) {
+			//seconds per day. need to convert to miliseconds, but storing in seconds for compactness
+			dayDecrement = 86400;
+		}
+		else {
+			dayDecrement = parseInt(localStorage.getItem( 'dayDecrement'));
+		}
+	$(".unloaded").each(function(){
+		var year, month, day;
+		
+		var dateToLoad = new Date(dateObj.getTime() - (dayDecrement*1000));
+		var stripName = dateToLoad.getFullYear() + "-" + ( zeroFormat(dateToLoad.getMonth() + 1) ) + "-" + zeroFormat(dateToLoad.getDate());
+		comicStripURL = baseURL + stripName + fileFormat;
+		$(this).css("background-image",'url("'+comicStripURL+'")');
+		$(".dailySegmentLabel", this).html((dateToLoad.getMonth()+1)+"/"+dateToLoad.getDate()+"/"+dateToLoad.getFullYear().toString().substring(2,4));
+		$(this).attr("name",comicStripURL);
+		$(this).on("click",loadComicStrip);
+		$(this).removeClass('unloaded');
+		//add a day
+		dayDecrement = Number(dayDecrement+86400);
+	});
+	localStorage.setItem( 'dayDecrement' , dayDecrement );
+}
+
+$(document).ready(function(){
+	width = $(window).width();
+	height = $(window).height();
+	if($(window).width() > $(window).height()) {
+		$('#comicCarousel').addClass('landscapeContainer');
+	}
+	else {
+		$('#comicCarousel').addClass('portraitContainer');
+	}
+	dateObj = new Date();
+	//construct date string to query for today's comic strip
+	// have to add 1 to month to get correct calendar month
+	year = dateObj.getFullYear();
+	month = dateObj.getMonth() + 1;
+	day = dateObj.getDate();
+	loadComicCarousel(true);
+	
+	$( window ).scroll(function() {
+		segmentMarkup = '<div class="dailySegment unloaded"><div class="dailySegmentLabel"></div></div>';
+		$('#comicCarousel').append(segmentMarkup);
+		loadComicCarousel(false);
+	});
+	
+	$(window).resize(function(){
+		if($(window).width() > $(window).height()) {
+			width = $(window).width();
+			height = $(window).height();
+			$('#comicCarousel').removeClass('portraitContainer');
+			$('#comicCarousel').addClass('landscapeContainer');
+		}
+		else {
+			width = $(window).width();
+			height = $(window).height();
+			$('#comicCarousel').addClass('portraitContainer');
+			$('#comicCarousel').removeClass('landscapeContainer');
+		}
+	});
+});
+</script>
+</body>
+</html>
