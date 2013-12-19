@@ -5,7 +5,7 @@ div.dailySegment {
 	float: left;
 	cursor: pointer;
 	background-size: 1350px;
-	margin:0 10px;
+	margin:0 5px;
 }
 
 div.dailySegment:first-child, div.dailySegment:last-child {
