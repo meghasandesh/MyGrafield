@@ -101,6 +101,10 @@ header {
 	height: 100px;
 	background: url('../images/headerBg.png');
 	width: 100%;
+	z-index: 500;
+}
+
+header.stripHeader {
 	visibility: hidden;
 }
 
@@ -140,4 +144,8 @@ header a:last-child {
 
 header a.selected {
 	background: rgba(255,102,51,0.8);
+}
+
+#comicCarousel, #favCarousel {
+	margin-top: 100px;
 }

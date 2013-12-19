@@ -10,10 +10,10 @@
 	<link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-	<header>
+	<header class="stripHeader">
 		<p>
-		<a href="#">All Strips</a>
-		<a href="#">Favorites</a>
+		<a href="index.html">All Strips</a>
+		<a href="FavPage.html">Favorites</a>
 		</p>
 	</header>
 	<div id="comicStrip">
@@ -106,7 +106,7 @@ function hideBottomBar() {
 	$('.bottomBarIcon').each(function() {
 		$(this).css('visibility','hidden');
 	});
-	$('header').css('visibility','hidden');
+	$('.stripHeader').css('visibility','hidden');
 }
 
 function handleTimeout(e) {
@@ -122,7 +122,7 @@ function handleTimeout(e) {
 function showAppFavIcon() {
 	$('#appIcon').css('visibility','visible');
 	$('#favorited').css('visibility','visible');
-	$('header').css('visibility','visible');
+	$('.stripHeader').css('visibility','visible');
 	handleTimeout();
 }
 
