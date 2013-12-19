@@ -10,24 +10,23 @@
 <body>
 	<header>
 		<p>
-		<a href="index.html">All Strips</a>
-		<a href="#" class="selected">Favorites</a>
+			<a href="index.html">All Strips</a>
+			<a href="#" class="selected">Favorites</a>
 		</p>
 	</header>
 	<div id="favCarousel">
-		
 	</div>
 <script>
-var segmentMarkup = '<a class="stripLink"><div class="dailySegment unloaded"><div class="dailySegmentLabel"></div></div></a>';
+var segmentMarkup = '<div class="dailySegment unloaded"><div class="dailySegmentLabel"></div></div>';
 var strips;
 var width, height;
 
 function loadFavStrips() {
 	$(".unloaded").each(function(i,d){
 		$(this).css("background-image",'url("'+strips[i]+'")');
-		$(this).parent().attr("href",strips[i]);
+		$(this).attr("name",strips[i]);
 		var datePieces = strips[i].match(/(\d{4})(-)(\d{2})(-)(\d{2})/)[0].split("-");
-		$(".dailySegmentLabel",this).html(Number(datePieces[1])+"/"+Number(datePieces[2])+"/"+datePieces[0].substring(2,4));
+		$(".dailySegmentLabel", this).html(Number(datePieces[1])+"/"+Number(datePieces[2])+"/"+datePieces[0].substring(2,4));
 		$(this).on("click",loadComicStrip);
 		$(this).removeClass('unloaded');
 	});
@@ -56,6 +55,11 @@ $(document).ready(function(){
 	else {
 		$('#favCarousel').addClass('portraitContainer');
 	}
+	
+	$('header a').on('click',function(){
+		event.preventDefault();
+		switchPage(this);
+	});
 	
 	$(window).resize(function(){
 		if($(window).width() > $(window).height()) {

@@ -5,15 +5,15 @@ div.dailySegment {
 	float: left;
 	cursor: pointer;
 	background-size: 1350px;
-	margin:0 5px;
+	margin: 0 10px;
 }
 
-a :first-child>div.dailySegment, a:last-child >div.dailySegment{
-	margin:0;
+div.dailySegment:nth-child(4n),div.dailySegment:first-child, div.dailySegment:nth-child(4n+1) {
+	margin:0;	
 }
 
 div.dailySegmentLabel {
-	background: rgba(255,102,51,0.8);
+	background: rgba(255,102,51, 0.8);
 	color: #FFF;
     padding: 15px;
     position: relative;
@@ -87,7 +87,7 @@ div.segment {
 	width: 1800px;
 	height: 534px;
 	background-size: 1800px 534px;
-	margin-top:50px;
+	margin-top:200px;
 }
 
 .landscapeContainer {
@@ -96,57 +96,56 @@ div.segment {
 }
 
 header {
-	position: fixed;
-	top:0;
+	width: 100%;
 	height: 200px;
 	background: url('../images/headerBg.png');
-	backgrounds-size: 642px 200px;
-	width: 100%;
+	position: fixed;
+	top: 0;
 	z-index: 500;
-}
-
-header.stripHeader {
-	visibility: hidden;
 }
 
 header p {
 	text-align: center;
-	margin-top: 60px;
+	margin-top: 48px;
 }
 
 header a {
-	color: #FFF;
-	font-family: Calibri, helvetica, sans-serif;
+	font-family: Calibri, sans-serif;
+	font-size: 72px;
 	text-decoration: none;
-	font-size: 56px;
-	padding: 20px 50px;
+	color: #FFF;
 	border: 3px solid #FFF;
+	padding: 20px 30px;
 }
 
-header a:first-child {
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	-webkit-border-radius-topleft: 10px;
-	-webkit-border-radius-bottomleft: 10px;
-	-moz-border-radius-topleft: 10px;
-	-moz-border-radius-bottomleft: 10px;
-	margin-right: -4px;
+header a:first-child{
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-radius-bottomleft: 20px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-radius-bottomleft: 20px;
+	margin-right: -5px;
 }
 
-header a:last-child {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	-webkit-border-radius-topright: 10px;
-	-webkit-border-radius-bottomright: 10px;
-	-moz-border-radius-topright: 10px;
-	-moz-border-radius-bottomright: 10px;
-	margin-left: -4px;
-}
-
-header a.selected {
-	background: rgba(255,102,51,0.8);
+header a:last-child  {
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-radius-bottomright: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-radius-bottomright: 20px;
+	margin-left: -5px;
 }
 
 #comicCarousel, #favCarousel {
-	margin-top: 100px;
+	margin-top: 200px;
+}
+
+.stripHeader {
+	visibility: hidden;
+}
+
+.selected {
+	background: rgba(255,102,51, 0.8);
 }

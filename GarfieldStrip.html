@@ -12,8 +12,8 @@
 <body>
 	<header class="stripHeader">
 		<p>
-		<a href="index.html">All Strips</a>
-		<a href="FavPage.html">Favorites</a>
+			<a href="index.html">All Strips</a>
+			<a href="FavPage.html">Favorites</a>
 		</p>
 	</header>
 	<div id="comicStrip">
@@ -104,9 +104,10 @@ function setFavorite() {
 
 function hideBottomBar() {
 	$('.bottomBarIcon').each(function() {
-		$(this).css('visibility','hidden');
+		$(this).css('visibility', 'hidden');
 	});
-	$('.stripHeader').css('visibility','hidden');
+	
+	$('.stripHeader').css('visibility', 'hidden');
 }
 
 function handleTimeout(e) {
@@ -120,9 +121,9 @@ function handleTimeout(e) {
 }
 
 function showAppFavIcon() {
-	$('#appIcon').css('visibility','visible');
-	$('#favorited').css('visibility','visible');
-	$('.stripHeader').css('visibility','visible');
+	$('#appIcon').css('visibility', 'visible');
+	$('#favorited').css('visibility', 'visible');
+	$('.stripHeader').css('visibility', 'visible');
 	handleTimeout();
 }
 
@@ -203,6 +204,11 @@ $(document).ready(function(){
 	
 	$(window).on('swiperight', function() {
 		loadPrevNextStrip('prev');
+	});
+	
+	$('header a').on('click',function(){
+		event.preventDefault();
+		switchPage(this);
 	});
 	
 	$(window).resize(function(){

@@ -7,3 +7,9 @@ function loadComicStrip(e) {
 	localStorage.setItem('stripToLoad',$(e.currentTarget).attr('name'));
 	window.location.assign("GarfieldStrip.html");
 }
+
+function switchPage(e) {
+	if($(e).attr('href')!='#') {
+		window.location.assign($(e).attr('href'));
+	}
+}
