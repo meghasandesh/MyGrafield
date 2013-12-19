@@ -5,23 +5,19 @@ div.dailySegment {
 	float: left;
 	cursor: pointer;
 	background-size: 1350px;
+	margin:0 10px;
 }
 
-div.dailySegment:nth-child(even) {
-	margin-left:10px;	
-}
-
-div.dailySegment:nth-child(odd) {
-	margin-right:10px;
+div.dailySegment:first-child, div.dailySegment:last-child {
+	margin:0;
 }
 
 div.dailySegmentLabel {
-	background: #FF6633;
+	background: rgba(255,102,51,0.8);
 	color: #FFF;
     padding: 15px;
     position: relative;
     top: 330px;
-    border-top-right-radius: 8px;
     height: 45px;
     width: 420px;
 	font-size: 32px;
@@ -97,4 +93,51 @@ div.segment {
 .landscapeContainer {
 	width: 1840px;
 	margin: 0 auto;
+}
+
+header {
+	position: fixed;
+	top:0;
+	height: 100px;
+	background: url('../images/headerBg.png');
+	width: 100%;
+	visibility: hidden;
+}
+
+header p {
+	text-align: center;
+	margin-top: 30px;
+}
+
+header a {
+	color: #FFF;
+	font-family: Calibri, helvetica, sans-serif;
+	text-decoration: none;
+	font-size: 28px;
+	padding: 10px 25px;
+	border: 3px solid #FFF;
+}
+
+header a:first-child {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-webkit-border-radius-topleft: 10px;
+	-webkit-border-radius-bottomleft: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	margin-right: -4px;
+}
+
+header a:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	-webkit-border-radius-topright: 10px;
+	-webkit-border-radius-bottomright: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-bottomright: 10px;
+	margin-left: -4px;
+}
+
+header a.selected {
+	background: rgba(255,102,51,0.8);
 }

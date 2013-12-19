@@ -11,6 +11,12 @@
 </head>
 <body>
 	<div id="comicStrip">
+		<header>
+			<p>
+			<a href="#">All Strips</a>
+			<a href="#">Favorites</a>
+			</p>
+		</header>
 		<div id="segment1" class="segment">
 		</div>
 		<div id="segment2" class="segment">
@@ -98,8 +104,9 @@ function setFavorite() {
 
 function hideBottomBar() {
 	$('.bottomBarIcon').each(function() {
-		$(this).css('visibility', 'hidden');
+		$(this).hide();
 	});
+	$('header').hide();
 }
 
 function handleTimeout(e) {
@@ -113,8 +120,9 @@ function handleTimeout(e) {
 }
 
 function showAppFavIcon() {
-	$('#appIcon').css('visibility', 'visible');
-	$('#favorited').css('visibility', 'visible');
+	$('#appIcon').show();
+	$('#favorited').show();
+	$('header').show();
 	handleTimeout();
 }
 
