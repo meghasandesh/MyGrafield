@@ -10,13 +10,13 @@
 	<link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
+	<header>
+		<p>
+		<a href="#">All Strips</a>
+		<a href="#">Favorites</a>
+		</p>
+	</header>
 	<div id="comicStrip">
-		<header>
-			<p>
-			<a href="#">All Strips</a>
-			<a href="#">Favorites</a>
-			</p>
-		</header>
 		<div id="segment1" class="segment">
 		</div>
 		<div id="segment2" class="segment">
@@ -104,9 +104,9 @@ function setFavorite() {
 
 function hideBottomBar() {
 	$('.bottomBarIcon').each(function() {
-		$(this).hide();
+		$(this).css('visibility','hidden');
 	});
-	$('header').hide();
+	$('header').css('visibility','hidden');
 }
 
 function handleTimeout(e) {
@@ -120,9 +120,9 @@ function handleTimeout(e) {
 }
 
 function showAppFavIcon() {
-	$('#appIcon').show();
-	$('#favorited').show();
-	$('header').show();
+	$('#appIcon').css('visibility','visible');
+	$('#favorited').css('visibility','visible');
+	$('header').css('visibility','visible');
 	handleTimeout();
 }
 
