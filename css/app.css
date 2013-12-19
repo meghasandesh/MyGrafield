@@ -8,7 +8,7 @@ div.dailySegment {
 	margin:0 5px;
 }
 
-div.dailySegment:first-child, div.dailySegment:last-child {
+a :first-child>div.dailySegment, a:last-child >div.dailySegment{
 	margin:0;
 }
 

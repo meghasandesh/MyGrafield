@@ -15,42 +15,42 @@
 		</p>
 	</header>
 	<div id="comicCarousel">
+		<a class="stripLink"><div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
+			<div class="dailySegmentLabel"></div>
+		</div></a>
 		<div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div><a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div><a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
+		</div></a>
+		<a class="stripLink"><div class="dailySegment unloaded">
 			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
-			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
-			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
-			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
-			<div class="dailySegmentLabel"></div>
-		</div>
-		<div class="dailySegment unloaded">
-			<div class="dailySegmentLabel"></div>
-		</div>
+		</div></a>
 	</div>
 <script>
 var currentDate, dateObj;
@@ -80,7 +80,7 @@ function loadComicCarousel(startup) {
 		comicStripURL = baseURL + stripName + fileFormat;
 		$(this).css("background-image",'url("'+comicStripURL+'")');
 		$(".dailySegmentLabel", this).html((dateToLoad.getMonth()+1)+"/"+dateToLoad.getDate()+"/"+dateToLoad.getFullYear().toString().substring(2,4));
-		$(this).attr("name",comicStripURL);
+		$(this).parent().attr("href",comicStripURL);
 		$(this).on("click",loadComicStrip);
 		$(this).removeClass('unloaded');
 		//add a day
@@ -107,7 +107,7 @@ $(document).ready(function(){
 	loadComicCarousel(true);
 	
 	$( window ).scroll(function() {
-		segmentMarkup = '<div class="dailySegment unloaded"><div class="dailySegmentLabel"></div></div>';
+		segmentMarkup = '<a><div class="dailySegment unloaded"><div class="dailySegmentLabel"></div></div></a>';
 		$('#comicCarousel').append(segmentMarkup);
 		loadComicCarousel(false);
 	});
