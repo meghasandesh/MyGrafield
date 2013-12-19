@@ -98,8 +98,9 @@ div.segment {
 header {
 	position: fixed;
 	top:0;
-	height: 100px;
+	height: 200px;
 	background: url('../images/headerBg.png');
+	backgrounds-size: 642px 200px;
 	width: 100%;
 	z-index: 500;
 }
@@ -110,15 +111,15 @@ header.stripHeader {
 
 header p {
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
 header a {
 	color: #FFF;
 	font-family: Calibri, helvetica, sans-serif;
 	text-decoration: none;
-	font-size: 28px;
-	padding: 10px 25px;
+	font-size: 56px;
+	padding: 20px 50px;
 	border: 3px solid #FFF;
 }
 
